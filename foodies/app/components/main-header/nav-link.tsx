@@ -8,7 +8,7 @@ export default function NavLink({ href, children }: { href: string; children: Re
     const pathname = usePathname();
 
     return (
-        <Link href={href} className={pathname.startsWith(href) ? styles.active : ""}>
+        <Link href={href} className={pathname.startsWith(href) ? `${styles.active} ${styles.link}` : `${styles.link}`}>
             {children}
         </Link>
     );
