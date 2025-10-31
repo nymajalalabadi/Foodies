@@ -8,10 +8,8 @@ export async function getMeals() {
     return meals;
 }
 
-export async function getMeal(slug) {
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    const meal = db.prepare('SELECT * FROM meals WHERE slug = ?').get(slug);
-    return meal;
+export function getMeal(slug) {
+    return db.prepare('SELECT * FROM meals WHERE slug = ?').get(slug);
 }
 
 export async function createMeal(meal) {
