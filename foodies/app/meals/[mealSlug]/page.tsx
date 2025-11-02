@@ -6,6 +6,11 @@ import { notFound } from 'next/navigation';
 export async function generateMetadata({ params }) {
   const resolvedParams = await params;
   const meal = await getMeal(resolvedParams.mealSlug);
+
+  if (!meal) {
+    notFound();
+  }
+
   return {
     title: meal.title,
     description: meal.summary,
